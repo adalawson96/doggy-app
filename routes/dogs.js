@@ -1,33 +1,22 @@
 const express = require ('express');
 const router = express.Router();
-
+const dogController = require('../controllers/dogs');
 
 // CRUD routes RESTful
-
 // GET all dogs
-router.get('/', (req, res) => {
-    res.send('hello world');
-});
+router.get('/', dogController.getAllDogs);
 
 // POST create a dog
-router.post('/', (req, res) => {
-    res.send('this is the POST route for dogs');
-});
+router.post('/', dogController.createDog)
 
 // GET one dog
-router.get ('/:id', (req, res) => {
-    res.send('this is the GET route for one dog');
-});
+router.get ('/:id', dogController.getOneDog) 
 
 // PUT  one dog
-router.put ('/:id', (req, res) => {
-    res.send('this is the PUT route for one dog');
-});
+router.put ('/:id', dogController.updateADog)
 
 // DELETE one dog 
-router.delete('/:id', (req, res) => {
-    res.send('this is the DELETE route for one dog');
-});
+router.delete('/:id', dogController.removeADog)
 
 // this line makes it available to us
 module.exports = router;
