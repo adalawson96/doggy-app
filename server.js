@@ -13,6 +13,8 @@ require('./config/database');
 
 // middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.cors()
 
 // routes
 app.use('/dogs', dogsRouter);
