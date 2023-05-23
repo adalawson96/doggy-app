@@ -21,10 +21,10 @@ const createDog = async (req, res) => {
 const getOneDog = async (req, res) => {
     try {
         let dog = await Dog.findById(req.params.id)
+        res.json(dog)
     } catch {
         res.json({ msg: 'there was an error getting your dog'})
     }
-    res.send('this is the GET route for one dog');
 };
 
 const updateADog = async (req, res) => {
